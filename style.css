@@ -1,11 +1,17 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+
 #kopf {
-  height: 5vh;
-  outline: 1px solid red;
+  height: 10vh;
+  width: 100%;
+  position: absolute;
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 #haupt {
-  height: 95vh;
-  outline: 1px solid red;
+  height: 100vh;
 }
 
 #slider-red {
