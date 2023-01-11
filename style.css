@@ -1,35 +1,21 @@
-html {
-  font-size: 10px;
-  box-sizing: border-box;
+#kopf {
+  height: 5vh;
+  outline: 1px solid red;
 }
 
-html,
-body {
-  height: 100%;
-  margin: 0;
+#haupt {
+  height: 95vh;
+  outline: 1px solid red;
 }
 
-header {
-  padding: 3rem;
-  font-size: 3.5rem;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  flex-direction: row;
-  background-color: rgb(red, green, blue);
-}
-
-#red {
-  cursor: pointer;
+#slider-red {
   accent-color: red;
 }
 
-#gruen {
-  cursor: pointer;
+#slider-green {
   accent-color: green;
 }
 
-#blau {
-  cursor: pointer;
+#slider-blue {
   accent-color: blue;
 }
