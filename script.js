@@ -50,3 +50,23 @@ function setColorValue(r, g, b) {
 displayR.innerHTML = r;
 displayG.innerHTML = g;
 displayB.innerHTML = b;
+
+const btn = document.querySelector("#btn");
+
+btn.addEventListener("click", () => {
+  fetch("https://dummy-apis.netlify.app/api/color")
+    .then((response) => {
+      if (response.ok) {
+        return response.json();
+      }
+    })
+    .then((color) => {
+      sliderR.value = color.rgb.r;
+      sliderG.value = color.rgb.g;
+      sliderB.value = color.rgb.b;
+      displayR.innerHTML = color.rgb.r;
+      displayG.innerHTML = color.rgb.g;
+      displayB.innerHTML = color.rgb.b;
+      setBackgroundColor(color.rgb.r, color.rgb.g, color.rgb.b);
+    });
+});
