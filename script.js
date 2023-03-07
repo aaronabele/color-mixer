@@ -1,3 +1,4 @@
+/*
 const sliderR = document.querySelector("#slider-red");
 const sliderG = document.querySelector("#slider-green");
 const sliderB = document.querySelector("#slider-blue");
@@ -69,3 +70,36 @@ btn.addEventListener("click", () => {
       updateSilderValues();
     });
 });
+*/
+Vue.createApp({
+  data() {
+    return {
+      valueRed: 50,
+      valueGreen: 50,
+      valueBlue: 50,
+    };
+  },
+  computed: {
+    total() {
+      return this.valueRed, this.valueGreen, this.valueBlue;
+    },
+    setBackgroundColor() {
+      document.body.style.backgroundColor = `rgb(${this.valueRed}, ${this.valueGreen}, ${this.valueBlue})`;
+    },
+  },
+  methods: {
+    randomColor() {
+      fetch("https://dummy-apis.netlify.app/api/color")
+        .then((response) => {
+          if (response.ok) {
+            return response.json();
+          }
+        })
+        .then((color) => {
+          this.valueRed = color.rgb.r;
+          this.valueGreen = color.rgb.b;
+          this.valueBlue = color.rgb.g;
+        });
+    },
+  },
+}).mount("#app");

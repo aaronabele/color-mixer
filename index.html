@@ -8,42 +8,50 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <header id="kopf">
-      <label for="slider-red">r</label>
-      <input
-        id="slider-red"
-        type="range"
-        step="1"
-        min="0"
-        max="255"
-        value="50"
-      />
-      <label for="slider-green">g</label>
-      <input
-        id="slider-green"
-        type="range"
-        step="1"
-        min="0"
-        max="255"
-        value="50"
-      />
-      <label for="slider-blue">b</label>
-      <input
-        id="slider-blue"
-        type="range"
-        step="1"
-        min="0"
-        max="255"
-        value="50"
-      />
-      <span
-        >rgb(<span class="display-r">255</span>,
-        <span class="display-g">255</span>,
-        <span class="display-b">0</span>)</span
-      >
-      <button id="btn">Random Color</button>
-    </header>
+    <div id="app">
+      <header id="kopf">
+        <label for="slider-red">red</label>
+        <input
+          id="slider-red"
+          type="range"
+          step="1"
+          min="0"
+          max="255"
+          v-model="valueRed"
+          @change="setBackgroundColor"
+        />
+        <label for="slider-green">green</label>
+        <input
+          id="slider-green"
+          type="range"
+          step="1"
+          min="0"
+          max="255"
+          v-model="valueGreen"
+          @change="setBackgroundColor"
+        />
+        <label for="slider-blue">blue</label>
+        <input
+          id="slider-blue"
+          type="range"
+          step="1"
+          min="0"
+          max="255"
+          v-model="valueBlue"
+          @change="setBackgroundColor"
+        />
+        <span
+          >rgb(<span v-text="valueRed"></span>,
+          <span v-text="valueGreen"></span>,
+          <span v-text="valueBlue"></span>)</span
+        >
+        <button id="btn" @click="randomColor, setBackgroundColor">
+          Random Color
+        </button>
+      </header>
+    </div>
     <main id="haupt"></main>
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
     <script src="script.js"></script>
   </body>
 </html>
